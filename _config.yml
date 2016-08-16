@@ -6,7 +6,7 @@
 carpentry: "swc"
 
 # Overall title for pages.
-title: "Version Control with Git"
+title: "Patched version of \"Version Control with Git\" for EuroSciPy2016"
 
 # Contact email address.
 email: lessons@software-carpentry.org
