@@ -16,44 +16,33 @@ keypoints:
 - "`git commit` saves the staged content as a new commit in the local repository."
 - "Always write a log message when committing changes."
 ---
-
-Let's create a file called `mars.txt` that contains some notes
-about the Red Planet's suitability as a base.
-(We'll use `nano` to edit the file;
-you can use whatever editor you like.
-In particular, this does not have to be the `core.editor` you set globally earlier.)
+Let's create a directory called `euroscipy2016`.
 
 ~~~
-$ nano mars.txt
+$ mkdir euroscipy2016
 ~~~
 {: .bash}
 
-Type the text below into the `mars.txt` file:
+Let's create a file called `euroscipy2016/__init__.py`.
 
 ~~~
-Cold and dry, but everything is my favorite color
+$ touch euroscipy2016/__init__.py
 ~~~
-{: .output}
+{: .bash}
 
-`mars.txt` now contains a single line, which we can see by running:
+We can se the file that we created by runnin:
 
 ~~~
-$ ls
+$ ls -R
 ~~~
 {: .bash}
 
 ~~~
-mars.txt
-~~~
-{: .output}
+.:
+euroscipy2016/
 
-~~~
-$ cat mars.txt
-~~~
-{: .bash}
-
-~~~
-Cold and dry, but everything is my favorite color
+./euroscipy2016:
+__init__.py
 ~~~
 {: .output}
 
@@ -73,7 +62,7 @@ $ git status
 # Untracked files:
 #   (use "git add <file>..." to include in what will be committed)
 #
-#	mars.txt
+#	euroscipy2016/
 nothing added to commit but untracked files present (use "git add" to track)
 ~~~
 {: .output}
@@ -83,7 +72,7 @@ that Git isn't keeping track of.
 We can tell Git to track a file using `git add`:
 
 ~~~
-$ git add mars.txt
+$ git add euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
@@ -102,25 +91,25 @@ $ git status
 # Changes to be committed:
 #   (use "git rm --cached <file>..." to unstage)
 #
-#	new file:   mars.txt
+#	new file:   euroscipy2016/__init__.py
 #
 ~~~
 {: .output}
 
-Git now knows that it's supposed to keep track of `mars.txt`,
+Git now knows that it's supposed to keep track of `euroscipy2016/__init.py`,
 but it hasn't recorded these changes as a commit yet.
 To get it to do that,
 we need to run one more command:
 
 ~~~
-$ git commit -m "Start notes on Mars as a base"
+$ git commit -m "Create my first Python package"
 ~~~
 {: .bash}
 
 ~~~
-[master (root-commit) f22b25e] Start notes on Mars as a base
+[master (root-commit) f22b25e] Create my first Python package
  1 file changed, 1 insertion(+)
- create mode 100644 mars.txt
+ create mode 100644 euroscipy2016/__init__.py
 ~~~
 {: .output}
 
@@ -168,7 +157,7 @@ commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
 Author: Vlad Dracula <vlad@tran.sylvan.ia>
 Date:   Thu Aug 22 09:51:46 2013 -0400
 
-    Start notes on Mars as a base
+    Create my first Python package
 ~~~
 {: .output}
 
@@ -183,26 +172,26 @@ and the log message Git was given when the commit was created.
 
 > ## Where Are My Changes?
 >
-> If we run `ls` at this point, we will still see just one file called `mars.txt`.
+> If we run `ls` at this point, we will still see just one file called `euroscipy2016/__init__.py`.
 > That's because Git saves information about files' history
 > in the special `.git` directory mentioned earlier
 > so that our filesystem doesn't become cluttered
 > (and so that we can't accidentally edit or delete an old version).
 {: .callout}
 
-Now suppose Dracula adds more information to the file.
-(Again, we'll edit with `nano` and then `cat` the file to show its contents;
-you may use a different editor, and don't need to `cat`.)
+Now suppose Dracula adds information to the file.
+(We'll use `nano` to edit the file;
+you can use whatever editor you like.
+In particular, this does not have to be the `core.editor` you set globally earlier.)
 
 ~~~
-$ nano mars.txt
-$ cat mars.txt
+$ nano euroscipy2016/__init__.py
+$ cat euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
+__version__ = '0.0.1'
 ~~~
 {: .output}
 
@@ -220,7 +209,7 @@ $ git status
 #   (use "git add <file>..." to update what will be committed)
 #   (use "git checkout -- <file>..." to discard changes in working directory)
 #
-#	modified:   mars.txt
+#	modified:   euroscipy2016/__init__.py
 #
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
@@ -243,13 +232,12 @@ $ git diff
 {: .bash}
 
 ~~~
-diff --git a/mars.txt b/mars.txt
+diff --git a/euroscipy2016/__init__.py b/euroscipy2016/__init__.py
 index df0654a..315bf3a 100644
---- a/mars.txt
-+++ b/mars.txt
-@@ -1 +1,2 @@
- Cold and dry, but everything is my favorite color
-+The two moons may be a problem for Wolfman
+--- a/euroscipy2016/__init__.py
++++ b/euroscipy2016/__init__.py
+@@ -0,0 +1 @@
++__version__ = '0.0.1'
 ~~~
 {: .output}
 
@@ -272,7 +260,7 @@ If we break it down into pieces:
 After reviewing our change, it's time to commit it:
 
 ~~~
-$ git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+$ git commit -m "Add version to my first package"
 $ git status
 ~~~
 {: .bash}
@@ -283,7 +271,7 @@ $ git status
 #   (use "git add <file>..." to update what will be committed)
 #   (use "git checkout -- <file>..." to discard changes in working directory)
 #
-#	modified:   mars.txt
+#	modified:   euroscipy2016/__init__.py
 #
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
@@ -294,13 +282,13 @@ Git won't commit because we didn't use `git add` first.
 Let's fix that:
 
 ~~~
-$ git add mars.txt
-$ git commit -m "Add concerns about effects of Mars' moons on Wolfman"
+$ git add euroscipy2016/__init__.py
+$ git commit -m "Add version to my first package"
 ~~~
 {: .bash}
 
 ~~~
-[master 34961b1] Add concerns about effects of Mars' moons on Wolfman
+[master 34961b1] Add version to my first package
  1 file changed, 1 insertion(+)
 ~~~
 {: .output}
@@ -352,15 +340,14 @@ First,
 we'll add another line to the file:
 
 ~~~
-$ nano mars.txt
-$ cat mars.txt
+$ nano euroscipy2016/__init__.py
+$ cat euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
+__version__ = '0.0.1'
+__author__ = 'Vlad Dracula'
 ~~~
 {: .output}
 
@@ -370,14 +357,13 @@ $ git diff
 {: .bash}
 
 ~~~
-diff --git a/mars.txt b/mars.txt
+diff --git a/euroscipy2016/__init__.py b/euroscipy2016/__init__.py
 index 315bf3a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/euroscipy2016/__init__.py
++++ b/euroscipy2016/__init__.py
 @@ -1,2 +1,3 @@
- Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
+ __version__ = '0.0.1'
++__author__ = 'Vlad Dracula'
 ~~~
 {: .output}
 
@@ -388,7 +374,7 @@ Now let's put that change in the staging area
 and see what `git diff` reports:
 
 ~~~
-$ git add mars.txt
+$ git add euroscipy2016/__init__.py
 $ git diff
 ~~~
 {: .bash}
@@ -406,14 +392,13 @@ $ git diff --staged
 {: .bash}
 
 ~~~
-diff --git a/mars.txt b/mars.txt
+diff --git a/euroscipy2016/__init__.py b/euroscipy2016/__init__.py
 index 315bf3a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/euroscipy2016/__init__.py
++++ b/euroscipy2016/__init__.py
 @@ -1,2 +1,3 @@
- Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
+ __version__ = '0.0.1'
++__author__ = 'Vlad Dracula'
 ~~~
 {: .output}
 
@@ -423,12 +408,12 @@ and what's in the staging area.
 Let's save our changes:
 
 ~~~
-$ git commit -m "Discuss concerns about Mars' climate for Mummy"
+$ git commit -m "Add author's name"
 ~~~
 {: .bash}
 
 ~~~
-[master 005937f] Discuss concerns about Mars' climate for Mummy
+[master 005937f] Add author's name
  1 file changed, 1 insertion(+)
 ~~~
 {: .output}
@@ -458,19 +443,19 @@ commit 005937fbe2a98fb83f0ade869025dc2636b4dad5
 Author: Vlad Dracula <vlad@tran.sylvan.ia>
 Date:   Thu Aug 22 10:14:07 2013 -0400
 
-    Discuss concerns about Mars' climate for Mummy
+    Add author's name
 
 commit 34961b159c27df3b475cfe4415d94a6d1fcd064d
 Author: Vlad Dracula <vlad@tran.sylvan.ia>
 Date:   Thu Aug 22 10:07:21 2013 -0400
 
-    Add concerns about effects of Mars' moons on Wolfman
+    Add version to my first package
 
 commit f22b25e3233b4645dabd0d81e651fe074bd8e73b
 Author: Vlad Dracula <vlad@tran.sylvan.ia>
 Date:   Thu Aug 22 09:51:46 2013 -0400
 
-    Start notes on Mars as a base
+    Create my first Python package
 ~~~
 {: .output}
 
@@ -497,11 +482,11 @@ repository (`git commit`):
 > ## Choosing a Commit Message
 >
 > Which of the following commit messages would be most appropriate for the
-> last commit made to `mars.txt`?
+> last commit made to `euroscipy2016/__init__.py`?
 >
 > 1. "Changes"
-> 2. "Added line 'But the Mummy will appreciate the lack of humidity' to mars.txt"
-> 3. "Discuss effects of Mars' climate on the Mummy"
+> 2. "Added line '__author__ = 'Vlad Dracula'' to euroscipy2016/__init__.py"
+> 3. "Add Dracula as author"
 >
 > > ## Solution
 > > Answer 1 is not descriptive enough,
@@ -539,10 +524,8 @@ repository (`git commit`):
 > The staging area can hold changes from any number of files
 > that you want to commit as a single snapshot.
 >
-> 1. Add some text to `mars.txt` noting your decision
-> to consider Venus as a base
-> 2. Create a new file `venus.txt` with your initial thoughts
-> about Venus as a base for you and your friends
+> 1. Add some comments to `euroscipy2016/__init__.py`.
+> 2. Create a new file `euroscipy2016/talks.py` with a list of talks' title.
 > 3. Add changes from both files to the staging area,
 > and commit those changes.
 {: .challenge}
