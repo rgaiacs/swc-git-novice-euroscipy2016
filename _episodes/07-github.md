@@ -49,7 +49,7 @@ $ git init
 ~~~
 {: .bash}
 
-Our local repository still contains our earlier work on `mars.txt`, but the
+Our local repository still contains our earlier work on `euroscipy2016/__init__.py`, but the
 remote repository on GitHub doesn't contain any files yet:
 
 ![Freshly-Made GitHub Repository](../fig/git-freshly-made-github-repo.svg)

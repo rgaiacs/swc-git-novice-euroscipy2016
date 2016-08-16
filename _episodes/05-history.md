@@ -20,20 +20,20 @@ As we saw in the previous lesson, we can refer to commits by their
 identifiers.  You can refer to the _most recent commit_ of the working
 directory by using the identifier `HEAD`.
 
-We've been adding one line at a time to `mars.txt`, so it's easy to track our
+We've been adding one line at a time to `euroscipy2016/__init__.py`, so it's easy to track our
 progress by looking, so let's do that using our `HEAD`s.  Before we start,
-let's make a change to `mars.txt`.
+let's make a change to `euroscipy2016/__init__.py`.
 
 ~~~
-$ nano mars.txt
-$ cat mars.txt
+$ nano euroscipy2016/__init__.py
+$ cat euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
 ~~~
 Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
+__version__ = '0.0.1'
+__author__ = 'Vlad Dracula'
 An ill-considered change
 ~~~
 {: .output}
@@ -41,19 +41,19 @@ An ill-considered change
 Now, let's see what we get.
 
 ~~~
-$ git diff HEAD mars.txt
+$ git diff HEAD euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
 ~~~
-diff --git a/mars.txt b/mars.txt
+diff --git a/euroscipy2016/__init__.py b/euroscipy2016/__init__.py
 index b36abfd..0848c8d 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/euroscipy2016/__init__.py
++++ b/euroscipy2016/__init__.py
 @@ -1,3 +1,4 @@
  Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
- But the Mummy will appreciate the lack of humidity
+ __version__ = '0.0.1'
+ __author__ = 'Vlad Dracula'
 +An ill-considered change.
 ~~~
 {: .output}
@@ -63,7 +63,7 @@ real goodness in all this is when you can refer to previous commits.  We do
 that by adding `~1` to refer to the commit one before `HEAD`.
 
 ~~~
-$ git diff HEAD~1 mars.txt
+$ git diff HEAD~1 euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
@@ -72,36 +72,36 @@ again, but with the notation `HEAD~1`, `HEAD~2`, and so on, to refer to old
 commits:
 
 ~~~
-$ git diff HEAD~1 mars.txt
+$ git diff HEAD~1 euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
 ~~~
-diff --git a/mars.txt b/mars.txt
+diff --git a/euroscipy2016/__init__.py b/euroscipy2016/__init__.py
 index 315bf3a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/euroscipy2016/__init__.py
++++ b/euroscipy2016/__init__.py
 @@ -1,2 +1,3 @@
  Cold and dry, but everything is my favorite color
- The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
+ __version__ = '0.0.1'
++__author__ = 'Vlad Dracula'
 ~~~
 {: .output}
 
 ~~~
-$ git diff HEAD~2 mars.txt
+$ git diff HEAD~2 euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
 ~~~
-diff --git a/mars.txt b/mars.txt
+diff --git a/euroscipy2016/__init__.py b/euroscipy2016/__init__.py
 index df0654a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/euroscipy2016/__init__.py
++++ b/euroscipy2016/__init__.py
 @@ -1 +1,3 @@
  Cold and dry, but everything is my favorite color
-+The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
++__version__ = '0.0.1'
++__author__ = 'Vlad Dracula'
 ~~~
 {: .output}
 
@@ -125,19 +125,19 @@ f22b25e3233b4645dabd0d81e651fe074bd8e73b,
 so let's try this:
 
 ~~~
-$ git diff f22b25e3233b4645dabd0d81e651fe074bd8e73b mars.txt
+$ git diff f22b25e3233b4645dabd0d81e651fe074bd8e73b euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
 ~~~
-diff --git a/mars.txt b/mars.txt
+diff --git a/euroscipy2016/__init__.py b/euroscipy2016/__init__.py
 index df0654a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/euroscipy2016/__init__.py
++++ b/euroscipy2016/__init__.py
 @@ -1 +1,3 @@
  Cold and dry, but everything is my favorite color
-+The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
++__version__ = '0.0.1'
++__author__ = 'Vlad Dracula'
 ~~~
 {: .output}
 
@@ -146,19 +146,19 @@ but typing out random 40-character strings is annoying,
 so Git lets us use just the first few characters:
 
 ~~~
-$ git diff f22b25e mars.txt
+$ git diff f22b25e euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
 ~~~
-diff --git a/mars.txt b/mars.txt
+diff --git a/euroscipy2016/__init__.py b/euroscipy2016/__init__.py
 index df0654a..b36abfd 100644
---- a/mars.txt
-+++ b/mars.txt
+--- a/euroscipy2016/__init__.py
++++ b/euroscipy2016/__init__.py
 @@ -1 +1,3 @@
  Cold and dry, but everything is my favorite color
-+The two moons may be a problem for Wolfman
-+But the Mummy will appreciate the lack of humidity
++__version__ = '0.0.1'
++__author__ = 'Vlad Dracula'
 ~~~
 {: .output}
 
@@ -168,8 +168,8 @@ can we restore older versions of things?
 Let's suppose we accidentally overwrite our file:
 
 ~~~
-$ nano mars.txt
-$ cat mars.txt
+$ nano euroscipy2016/__init__.py
+$ cat euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
@@ -192,7 +192,7 @@ $ git status
 #   (use "git add <file>..." to update what will be committed)
 #   (use "git checkout -- <file>..." to discard changes in working directory)
 #
-#	modified:   mars.txt
+#	modified:   euroscipy2016/__init__.py
 #
 no changes added to commit (use "git add" and/or "git commit -a")
 ~~~
@@ -202,15 +202,15 @@ We can put things back the way they were
 by using `git checkout`:
 
 ~~~
-$ git checkout HEAD mars.txt
-$ cat mars.txt
+$ git checkout HEAD euroscipy2016/__init__.py
+$ cat euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
 ~~~
 Cold and dry, but everything is my favorite color
-The two moons may be a problem for Wolfman
-But the Mummy will appreciate the lack of humidity
+__version__ = '0.0.1'
+__author__ = 'Vlad Dracula'
 ~~~
 {: .output}
 
@@ -223,7 +223,7 @@ If we want to go back even further,
 we can use a commit identifier instead:
 
 ~~~
-$ git checkout f22b25e mars.txt
+$ git checkout f22b25e euroscipy2016/__init__.py
 ~~~
 {: .bash}
 
@@ -232,12 +232,12 @@ $ git checkout f22b25e mars.txt
 > Above we used
 >
 > ~~~
-> $ git checkout f22b25e mars.txt
+> $ git checkout f22b25e euroscipy2016/__init__.py
 > ~~~
 > {: .bash}
 >
-> to revert mars.txt to its state after the commit f22b25e.
-> If you forget `mars.txt` in that command, git will tell you that "You are in
+> to revert euroscipy2016/__init__.py to its state after the commit f22b25e.
+> If you forget `euroscipy2016/__init__.py` in that command, git will tell you that "You are in
 > 'detached HEAD' state." In this state, you shouldn't make any changes.
 > You can fix this by reattaching your head using ``git checkout master``
 {: .callout}
@@ -375,10 +375,10 @@ moving backward and forward in time becomes much easier.
 
 > ## Checking Understanding of `git diff`
 >
-> Consider this command: `git diff HEAD~3 mars.txt`. What do you predict this command
+> Consider this command: `git diff HEAD~3 euroscipy2016/__init__.py`. What do you predict this command
 > will do if you execute it? What happens when you do execute it? Why?
 >
-> Try another command, `git diff [ID] mars.txt`, where [ID] is replaced with
+> Try another command, `git diff [ID] euroscipy2016/__init__.py`, where [ID] is replaced with
 > the unique identifier for your most recent commit. What do you think will happen,
 > and what does happen?
 {: .challenge}
@@ -387,7 +387,7 @@ moving backward and forward in time becomes much easier.
 >
 > `git checkout` can be used to restore a previous commit when unstaged changes have
 > been made, but will it also work for changes that have been staged but not committed?
-> Make a change to `mars.txt`, add that change, and use `git checkout` to see if
+> Make a change to `euroscipy2016/__init__.py`, add that change, and use `git checkout` to see if
 > you can remove your change.
 {: .challenge}
 
@@ -397,15 +397,15 @@ moving backward and forward in time becomes much easier.
 > the right commit ID, especially if the commit is from several months ago.
 >
 > Imaging the `planets` project has more than 50 files.
-> You would like to find a commit with specific text in `mars.txt` is modified.
+> You would like to find a commit with specific text in `euroscipy2016/__init__.py` is modified.
 > When you type `git log`, a very long list appeared,
 > How can you narrow down the search?
 >
 > Recorded that the `git diff` command allow us to explore one specific file,
-> e.g. `git diff mars.txt`. We can apply the similar idea here.
+> e.g. `git diff euroscipy2016/__init__.py`. We can apply the similar idea here.
 >
 > ~~~
-> $ git log mars.txt
+> $ git log euroscipy2016/__init__.py
 > ~~~
 > {: .bash}
 >
@@ -416,7 +416,7 @@ moving backward and forward in time becomes much easier.
 > Is that possible to combine both? Let's try the following:
 >
 > ~~~
-> $ git log --patch mars.txt
+> $ git log --patch euroscipy2016/__init__.py
 > ~~~
 > {: .bash}
 >
