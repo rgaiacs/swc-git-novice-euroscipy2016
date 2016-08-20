@@ -33,7 +33,7 @@ $ cat euroscipy2016/__init__.py
 ~~~
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
-An ill-considered change
+__license__ = 'MIT'
 ~~~
 {: .output}
 
@@ -52,7 +52,7 @@ index b36abfd..0848c8d 100644
 @@ -1,3 +1,4 @@
  __version__ = '0.0.1'
  __author__ = 'Vlad Dracula'
-+An ill-considered change.
++__license__ = 'MIT'.
 ~~~
 {: .output}
 
