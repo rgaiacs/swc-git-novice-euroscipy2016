@@ -168,7 +168,7 @@ $ cat euroscipy2016/__init__.py
 {: .bash}
 
 ~~~
-We will need to manufacture our own oxygen
+__repo__ = None
 ~~~
 {: .output}
 
