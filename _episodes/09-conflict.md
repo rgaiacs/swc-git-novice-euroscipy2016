@@ -29,7 +29,6 @@ $ cat euroscipy2016/__init__.py
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
 ~~~
@@ -44,7 +43,6 @@ $ cat euroscipy2016/__init__.py
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
 This line added to Wolfman's copy
@@ -92,7 +90,6 @@ $ cat euroscipy2016/__init__.py
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
 We added a different line in the other copy
@@ -167,7 +164,6 @@ $ cat euroscipy2016/__init__.py
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
 <<<<<<< HEAD
@@ -197,7 +193,6 @@ $ cat euroscipy2016/__init__.py
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
 We removed the conflict on this line
@@ -285,7 +280,6 @@ $ cat euroscipy2016/__init__.py
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
 We removed the conflict on this line

@@ -31,7 +31,6 @@ $ cat euroscipy2016/__init__.py
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
 An ill-considered change
@@ -51,7 +50,6 @@ index b36abfd..0848c8d 100644
 --- a/euroscipy2016/__init__.py
 +++ b/euroscipy2016/__init__.py
 @@ -1,3 +1,4 @@
- Cold and dry, but everything is my favorite color
  __version__ = '0.0.1'
  __author__ = 'Vlad Dracula'
 +An ill-considered change.
@@ -82,7 +80,6 @@ index 315bf3a..b36abfd 100644
 --- a/euroscipy2016/__init__.py
 +++ b/euroscipy2016/__init__.py
 @@ -1,2 +1,3 @@
- Cold and dry, but everything is my favorite color
  __version__ = '0.0.1'
 +__author__ = 'Vlad Dracula'
 ~~~
@@ -99,7 +96,6 @@ index df0654a..b36abfd 100644
 --- a/euroscipy2016/__init__.py
 +++ b/euroscipy2016/__init__.py
 @@ -1 +1,3 @@
- Cold and dry, but everything is my favorite color
 +__version__ = '0.0.1'
 +__author__ = 'Vlad Dracula'
 ~~~
@@ -135,7 +131,6 @@ index df0654a..b36abfd 100644
 --- a/euroscipy2016/__init__.py
 +++ b/euroscipy2016/__init__.py
 @@ -1 +1,3 @@
- Cold and dry, but everything is my favorite color
 +__version__ = '0.0.1'
 +__author__ = 'Vlad Dracula'
 ~~~
@@ -156,7 +151,6 @@ index df0654a..b36abfd 100644
 --- a/euroscipy2016/__init__.py
 +++ b/euroscipy2016/__init__.py
 @@ -1 +1,3 @@
- Cold and dry, but everything is my favorite color
 +__version__ = '0.0.1'
 +__author__ = 'Vlad Dracula'
 ~~~
@@ -208,7 +202,6 @@ $ cat euroscipy2016/__init__.py
 {: .bash}
 
 ~~~
-Cold and dry, but everything is my favorite color
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
 ~~~
