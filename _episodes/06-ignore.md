@@ -17,8 +17,7 @@ or intermediate files created during data analysis.
 Let's create a few dummy files:
 
 ~~~
-$ mkdir results
-$ touch a.dat b.dat c.dat results/a.out results/b.out
+$ python -c 'import euroscipy2016'
 ~~~
 {: .bash}
 
@@ -34,10 +33,7 @@ $ git status
 # Untracked files:
 #   (use "git add <file>..." to include in what will be committed)
 #
-#	a.dat
-#	b.dat
-#	c.dat
-#	results/
+#	__pycache__/
 nothing added to commit but untracked files present (use "git add" to track)
 ~~~
 {: .output}
@@ -56,13 +52,12 @@ $ cat .gitignore
 {: .bash}
 
 ~~~
-*.dat
-results/
+__pycache__/
 ~~~
 {: .output}
 
-These patterns tell Git to ignore any file whose name ends in `.dat`
-and everything in the `results` directory.
+These patterns tell Git to ignore
+everything in the `__pycache__/` directory.
 (If any of these files were already being tracked,
 Git would continue to track them.)
 
@@ -106,21 +101,20 @@ nothing to commit, working directory clean
 As a bonus, using `.gitignore` helps us avoid accidentally adding to the repository files that we don't want to track:
 
 ~~~
-$ git add a.dat
+$ git add euroscipy2016/__pycache__/__init__.cpython-35.pyc
 ~~~
 {: .bash}
 
 ~~~
 The following paths are ignored by one of your .gitignore files:
-a.dat
+euroscipy2016/__pycache__/__init__.cpython-35.pyc
 Use -f if you really want to add them.
-fatal: no files added
 ~~~
 {: .output}
 
 If we really want to override our ignore settings,
 we can use `git add -f` to force Git to add something. For example,
-`git add -f a.dat`.
+`git add -f euroscipy2016/__pycache__/__init__.cpython-35.pyc`.
 We can also always see the status of ignored files if we want:
 
 ~~~
@@ -133,10 +127,7 @@ $ git status --ignored
 # Ignored files:
 #  (use "git add -f <file>..." to include in what will be committed)
 #
-#        a.dat
-#        b.dat
-#        c.dat
-#        results/
+#        euroscipy2016/__pycache__/
 
 nothing to commit, working directory clean
 ~~~
