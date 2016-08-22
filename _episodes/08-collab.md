@@ -52,25 +52,25 @@ exactly the same way as we've been doing before:
 
 ~~~
 $ cd ~/Desktop/vlad-euroscipy2016
-$ nano pluto.txt
-$ cat pluto.txt
+$ nano tests.py
+$ cat tests.py
 ~~~
 {: .bash}
 
 ~~~
-It is so a planet!
+# TODO Add as many tests as possible.
 ~~~
 {: .output}
 
 ~~~
-$ git add pluto.txt
-$ git commit -m "Some notes about Pluto"
+$ git add tests.py
+$ git commit -m "Some notes about tests"
 ~~~
 {: .bash}
 
 ~~~
  1 file changed, 1 insertion(+)
- create mode 100644 pluto.txt
+ create mode 100644 tests.py
 ~~~
 {: .output}
 
@@ -116,9 +116,9 @@ From https://github.com/vlad/euroscipy2016
  * branch            master     -> FETCH_HEAD
 Updating 9272da5..29aba7c
 Fast-forward
- pluto.txt | 1 +
+ tests.py | 1 +
  1 file changed, 1 insertion(+)
- create mode 100644 pluto.txt
+ create mode 100644 tests.py
 ~~~
 {: .output}
 
