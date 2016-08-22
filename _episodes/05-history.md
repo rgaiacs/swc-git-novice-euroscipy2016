@@ -326,7 +326,7 @@ moving backward and forward in time becomes much easier.
 > What is the output of cat venus.txt at the end of this set of commands?
 >
 > ~~~
-> $ cd planets
+> $ cd euroscipy2016
 > $ nano venus.txt #input the following text: Venus is beautiful and full of love
 > $ git add venus.txt
 > $ nano venus.txt #add the following text: Venus is too hot to be suitable as a base
@@ -389,7 +389,7 @@ moving backward and forward in time becomes much easier.
 > Exploring history is an important part of git, often it is a challenge to find
 > the right commit ID, especially if the commit is from several months ago.
 >
-> Imaging the `planets` project has more than 50 files.
+> Imaging the `euroscipy2016` project has more than 50 files.
 > You would like to find a commit with specific text in `euroscipy2016/__init__.py` is modified.
 > When you type `git log`, a very long list appeared,
 > How can you narrow down the search?
