@@ -45,7 +45,7 @@ $ cat euroscipy2016/__init__.py
 ~~~
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
-This line added to Wolfman's copy
+# TODO Add Wolfman as author
 ~~~
 {: .output}
 
@@ -92,7 +92,7 @@ $ cat euroscipy2016/__init__.py
 ~~~
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
-We added a different line in the other copy
+# TODO Add main function
 ~~~
 {: .output}
 
@@ -167,9 +167,9 @@ $ cat euroscipy2016/__init__.py
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
 <<<<<<< HEAD
-We added a different line in the other copy
+# TODO Add main function
 =======
-This line added to Wolfman's copy
+# TODO Add Wolfman as author
 >>>>>>> dabb4c8c450e8475aee9b14b4383acc99f42af1d
 ~~~
 {: .output}
@@ -195,7 +195,10 @@ $ cat euroscipy2016/__init__.py
 ~~~
 __version__ = '0.0.1'
 __author__ = 'Vlad Dracula'
-We removed the conflict on this line
+__author__ = 'Dracula, Wolfman'
+
+def main():
+    pass
 ~~~
 {: .output}
 
@@ -281,8 +284,10 @@ $ cat euroscipy2016/__init__.py
 
 ~~~
 __version__ = '0.0.1'
-__author__ = 'Vlad Dracula'
-We removed the conflict on this line
+__author__ = 'Dracula, Wolfman'
+
+def main():
+    pass
 ~~~
 {: .output}
 
